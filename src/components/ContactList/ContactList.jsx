@@ -1,28 +1,28 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
 import s from './ContactList.module.css'
-import { ContactsItem } from './ContactListItem'
 
-export class ContactList extends Component {
-  render() {
-    const { contacts, onDeleteContact } = this.props
+const ContactList = ({ contacts, onDeleteContact }) => {
     return (
       <>
         <p>Total contacts: {contacts.length}</p>
         <ul className={s['list']}>
           {contacts.map(({ id, name, number }) => (
-            <ContactsItem
-              key={id}
-              name={name}
-              number={number}
-              id={id}
-              onDeleteContact={onDeleteContact}
-            />
+            <li key={id} id={id} className={s['item']}>
+              <button
+                onClick={() => onDeleteContact(id)}
+                className={s['button']}
+                type='Submit'>
+                x
+              </button>
+              <div className={s['wrapper']}>
+                <p className={s['text']}>{name}:</p>
+                <p className={s['number']}>{number}</p>
+              </div>
+            </li>
           ))}
         </ul>
       </>
     )
-  }
 }
 
 ContactList.propTypes = {
@@ -35,3 +35,5 @@ ContactList.propTypes = {
     
   )
 }
+
+export default ContactList

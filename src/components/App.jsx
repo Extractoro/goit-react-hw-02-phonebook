@@ -1,10 +1,10 @@
 import { nanoid } from 'nanoid'
 import React, { Component } from 'react'
-import { ContactList } from './ContactList'
-import { Container } from './Container'
-import { Filter } from './Filter'
+import ContactList from './ContactList'
+import Container from './Container'
+import Filter from './Filter'
 import { Form } from './Form'
-import { Section } from './Section'
+import Section from './Section'
 import Notiflix from 'notiflix'
 
 export class App extends Component {

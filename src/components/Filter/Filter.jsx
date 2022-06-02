@@ -1,11 +1,8 @@
 import s from './Filter.module.css'
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
 
-export class Filter extends Component {
-  render() {
-    const { value, onChange } = this.props
-    return (
+const Filter = ({ value, onChange }) => {
+  return (
       <label className={s['label']}>
         <p className={s['text']}>Filter contacts by name</p>
         <input
@@ -16,10 +13,11 @@ export class Filter extends Component {
         />
       </label>
     )
-  }
 }
 
 Filter.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired
 }
+
+export default Filter
